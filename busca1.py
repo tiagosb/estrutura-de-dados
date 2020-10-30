@@ -7,6 +7,7 @@
 # A função busca1 faz duas verificações a cada execução: i < len(lista) e lista[i] == alvo;
 # A função busca2 faz apenas uma verificação por execução: lista[i] == alvo
 # A função busca3 busca na lista ordenada
+# A função busca4 implementa uma busca binária
 # ---------------------------------------------------------------------------------------
 import time
 import random
@@ -46,19 +47,27 @@ def busca3(alvo):
 	lista.pop()
 	return i
 
+def busca4(alvo):
+	lista.sort()
+	inicio = 0
+	topo = len(lista)
+	while inicio < topo:
+		meio = int((inicio+topo)/2)
+		if lista[meio] == alvo:
+			inicio = topo+1
+			return meio
+		elif lista[meio] < alvo:
+			inicio = meio+1
+		else:
+			topo = meio-1
+	return None
+		
 
-
-for i in range(10000):
+for i in range(1000000):
     lista.append(random.randint(10, 1000))
 
 n = random.choice(lista)
 
-
-print(
-    "A lista possui {} elementos nao ordenados.\nBuscando por {}...\n".format(
-        len(lista), n
-    )
-)
 start1 = time.time()
 busca1(n)
 tempo1 = time.time() - start1
@@ -73,3 +82,9 @@ start3 = time.time()
 busca3(n)
 tempo3 = time.time() - start3
 print("Busca3     -> {}".format(tempo3))
+
+start4 = time.time()
+busca4(n)
+tempo4 = time.time()-start4
+print("Busca4     -> {}".format(tempo4))
+
