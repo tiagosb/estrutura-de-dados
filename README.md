@@ -1,2 +1,1 @@
-# estrutura-de-dados
-# estrutura-de-dados
+# Estudo - Estrutura de dados e algoritmos
