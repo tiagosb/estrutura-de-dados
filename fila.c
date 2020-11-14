@@ -57,7 +57,8 @@ void pop(int *fila, int *ultimo) {
 		return;
 	}
 	
-	for(int i=0; i<*ultimo; i++)  fila[i] = fila[i+1];//Remove o primeiro e realoca o restante
+	for(int i=0; i<*ultimo; i++)
+		fila[i] = fila[i+1];//Remove o primeiro e realoca o restante
 	*ultimo -= 1;
 }
 
@@ -73,9 +74,10 @@ void push(int *fila, int *ultimo, int valor) {
 void show(int *fila, int *ultimo) {
 	printf("[");
 	for(int i=0; i<MAX; i++) {
-		if(i < *ultimo+1){
+		if(i < *ultimo+1)
 			printf(" %d", fila[i]);
-		} else printf(" _");
+		else 
+			printf(" _");
 	}
 	printf(" ]\n");
 }

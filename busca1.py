@@ -30,38 +30,40 @@ def busca2(alvo):
     i = 0
     while not lista[i] == alvo:
         i += 1
-    lista.pop() #Remove o elemento que havia sido adicionado
+    lista.pop()  # Remove o elemento que havia sido adicionado
     if not i == len(lista) - 1:
         return i  # Item encontrado; retorna o indice
     return None
 
+
 def busca3(alvo):
-	lista.sort()
-	lista.append(alvo) #Adiciona o alvo no final da lista
-	i = 0
-	while lista[i] < alvo:
-		i += 1
-	if i == len(lista)-1 or not lista[i] == alvo:
-		lista.pop()
-		return None
-	lista.pop()
-	return i
+    lista.sort()
+    lista.append(alvo)  # Adiciona o alvo no final da lista
+    i = 0
+    while lista[i] < alvo:
+        i += 1
+    if i == len(lista) - 1 or not lista[i] == alvo:
+        lista.pop()
+        return None
+    lista.pop()
+    return i
+
 
 def busca4(alvo):
-	lista.sort()
-	inicio = 0
-	topo = len(lista)
-	while inicio < topo:
-		meio = int((inicio+topo)/2)
-		if lista[meio] == alvo:
-			inicio = topo+1
-			return meio
-		elif lista[meio] < alvo:
-			inicio = meio+1
-		else:
-			topo = meio-1
-	return None
-		
+    lista.sort()
+    inicio = 0
+    topo = len(lista)
+    while inicio < topo:
+        meio = int((inicio + topo) / 2)
+        if lista[meio] == alvo:
+            inicio = topo + 1
+            return meio
+        elif lista[meio] < alvo:
+            inicio = meio + 1
+        else:
+            topo = meio - 1
+    return None
+
 
 for i in range(1000000):
     lista.append(random.randint(10, 1000))
@@ -85,6 +87,5 @@ print("Busca3     -> {}".format(tempo3))
 
 start4 = time.time()
 busca4(n)
-tempo4 = time.time()-start4
+tempo4 = time.time() - start4
 print("Busca4     -> {}".format(tempo4))
-

@@ -47,11 +47,10 @@ int main(void) {
 void exibe(int *pilha, int *topo) {
 	printf("[");
 	for(int i=0; i<MAX; i++){
-		if(i <= *topo) {
-	 		printf(" %d", pilha[i]);
-		} else {
+		if(i <= *topo) 
+			printf(" %d", pilha[i]);
+		else 
 			printf(" _");
-		}
 	}
 	printf(" ]\n");
 };
